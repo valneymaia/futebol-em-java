@@ -9,7 +9,7 @@ public class Campeonato {
     public Campeonato() {
         this.clubes = new ArrayList<Clube>();
     }
-
+    //adicionar os clubes criados
     public void adicionarClube(Clube clube){
         this.clubes.add(clube);
     }
@@ -44,8 +44,8 @@ public class Campeonato {
             clubeVisitante.empatarJogo(golsV, golsM);
         }
     }
-    //imprimir a classificacao dos times com base em pontos depois saldos de gols usando o algoritmo de ordenacao
-    public void getClassificacao() {
+    //implemtaçao para printar a classicaçao usando metodo void
+    /*public void getClassificacao() {
         Collections.sort(clubes, Clube.comparePontos);
        // for(Clube clube : clubes) {  //teste de ordenaçao quando empatava nos pontos
         //    System.out.println(clube.getNomeTime() + "Pontos: " + clube.getPontos() + ", saldo de gols: " + clube.getSaldodeGols());
@@ -57,14 +57,30 @@ public class Campeonato {
             System.out.println("|"+clube.getNomeTime() + "\t  |Pontos: |" + clube.getPontos() + "|\t saldo de gols: |" + clube.getSaldodeGols()+"|");
         } 
         System.out.println("---------------------------------------------------------");
+    }*/
+    // printar a  classificacao como string 
+    public String getClassificacao() {
+        Collections.sort(clubes, Clube.comparePontos);
+       // for(Clube clube : clubes) {  //teste de ordenaçao quando empatava nos pontos
+        //    System.out.println(clube.getNomeTime() + "Pontos: " + clube.getPontos() + ", saldo de gols: " + clube.getSaldodeGols());
+       // }
+        Collections.sort(clubes, Clube.compareSaldo);
+         StringBuilder sb = new StringBuilder();
+         int posicao = 1;
+        for (Clube clube : clubes) {
+            sb.append("\n"+posicao + ". " + clube.getNomeTime() + " - |Pontos: " + clube.getPontos() + "  |Saldo de gols: " + clube.getSaldodeGols() +"|");
+            posicao++;
+        } 
+    return sb.toString();
     }
     //printa o campeoa, mas adptei para champions league printando tambem o segundo e terceiro lugar
-    public void getCampeao(){
-        System.out.println("\n"); //pula 
-        System.out.println("PARABENS CAMPEAO! o time campeão da fase de grupo da Champions League: "  + clubes.get(0).getNomeTime());
-        System.out.println("Time ficou em segundo lugar e estar classificado para oitavas: " + clubes.get(1).getNomeTime());
-        System.out.println("Time ficou em terceiro lugar e vai jogar europa league: "+ clubes.get(2).getNomeTime());
-        System.out.println("\n");
+    public void getCampeao(){ 
+        System.out.println("\n\t\tPARABENS CAMPEAO: "+ clubes.get(0).getNomeTime());
+        System.out.println("============================================================");
+        System.out.println("Time campeão da fase de grupo da Champions League:  " + clubes.get(0).getNomeTime());
+        System.out.println("Time estar classificado para oitavas: " + clubes.get(1).getNomeTime());
+        System.out.println("Time estar classificado vai jogar Europa League: "+ clubes.get(2).getNomeTime());
+        System.out.println("============================================================");  
     }
 
 }
