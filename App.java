@@ -14,14 +14,19 @@ public class App {
         campeonato.adicionarClube(viktoria);
          // Imprimindo os resultados das partidas
         System.out.println("\nResultado das Partidas da fase grupo da Champions League: ");
+        System.out.println("============================================================");
         //jogando o campeonato
         campeonato.jogarCampeonato();
         // imprimndo a tabela de classficacao
-        campeonato.getClassificacao();
+        System.out.print("===========================================================\n");
+        System.out.print("Tabela da fase de grupo da Champions grupo B:  \n"+ campeonato.getClassificacao());
+        System.out.print("\n============================================================");
        // imprimindo o campeao
         campeonato.getCampeao();
+       
     
 
     }
 
 }
+
