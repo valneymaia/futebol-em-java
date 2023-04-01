@@ -12,21 +12,17 @@ public class App {
         campeonato.adicionarClube(barcelona);
         campeonato.adicionarClube(inter);
         campeonato.adicionarClube(viktoria);
-         // Imprimindo os resultados das partidas
-        System.out.println("\nResultado das Partidas da fase grupo da Champions League: ");
-        System.out.println("============================================================");
         //jogando o campeonato
+        System.out.print("============================================================\n");
+        System.out.println("Resultado das Partidas: ");
+        System.out.print("============================================================\n");
         campeonato.jogarCampeonato();
         // imprimndo a tabela de classficacao
-        System.out.print("===========================================================\n");
-        System.out.print("Tabela da fase de grupo da Champions grupo B:  \n"+ campeonato.getClassificacao());
-        System.out.print("\n============================================================");
-       // imprimindo o campeao
-        campeonato.getCampeao();
-       
-    
-
+        System.out.print("============================================================");
+        System.out.println("\nTabela da fase grupo da Champions League:  " + campeonato.getClassificacao()); 
+        System.out.println("============================================================");
+        // imprimindo o campeao
+        System.out.println(" " + campeonato.getCampeao() ); 
     }
-
 }
 
