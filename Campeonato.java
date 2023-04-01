@@ -9,7 +9,7 @@ public class Campeonato {
     public Campeonato() {
         this.clubes = new ArrayList<Clube>();
     }
-    //adicionar os clubes criados
+
     public void adicionarClube(Clube clube){
         this.clubes.add(clube);
     }
@@ -44,45 +44,35 @@ public class Campeonato {
             clubeVisitante.empatarJogo(golsV, golsM);
         }
     }
-    //implemtaçao para printar a classicaçao usando metodo void
-    /*public void getClassificacao() {
-        Collections.sort(clubes, Clube.comparePontos);
-       // for(Clube clube : clubes) {  //teste de ordenaçao quando empatava nos pontos
-        //    System.out.println(clube.getNomeTime() + "Pontos: " + clube.getPontos() + ", saldo de gols: " + clube.getSaldodeGols());
-       // }
-        System.out.println("\nTabela da fase de grupo da Champions grupo B: \n");
-        Collections.sort(clubes, Clube.compareSaldo);
-        for(Clube clube : clubes) {
-            System.out.println("---------------------------------------------------------");
-            System.out.println("|"+clube.getNomeTime() + "\t  |Pontos: |" + clube.getPontos() + "|\t saldo de gols: |" + clube.getSaldodeGols()+"|");
-        } 
-        System.out.println("---------------------------------------------------------");
-    }*/
-    // printar a  classificacao como string 
+    //imprimir a classificacao dos times com base em pontos depois saldos de gols usando o algoritmo de ordenacao
     public String getClassificacao() {
         Collections.sort(clubes, Clube.comparePontos);
        // for(Clube clube : clubes) {  //teste de ordenaçao quando empatava nos pontos
         //    System.out.println(clube.getNomeTime() + "Pontos: " + clube.getPontos() + ", saldo de gols: " + clube.getSaldodeGols());
        // }
         Collections.sort(clubes, Clube.compareSaldo);
-         StringBuilder sb = new StringBuilder();
-         int posicao = 1;
-        for (Clube clube : clubes) {
-            sb.append("\n"+posicao + ". " + clube.getNomeTime() + " - |Pontos: " + clube.getPontos() + "  |Saldo de gols: " + clube.getSaldodeGols() +"|");
-            posicao++;
-        } 
-    return sb.toString();
-    }
+        StringBuilder sb = new StringBuilder();
+        int posicao = 1;
+       for (Clube clube : clubes) {
+           sb.append("\n============================================================");
+           sb.append("\n"+posicao + ". " + clube.getNomeTime() + " - |Pontos: " + clube.getPontos() + "  |Saldo de gols: " + clube.getSaldodeGols() +"|");
+           posicao++;
+       } 
+   return sb.toString();
+   }
     //printa o campeoa, mas adptei para champions league printando tambem o segundo e terceiro lugar
-    public void getCampeao(){ 
-        System.out.println("\n\t\tPARABENS CAMPEAO: "+ clubes.get(0).getNomeTime());
-        System.out.println("============================================================");
-        System.out.println("Time campeão da fase de grupo da Champions League:  " + clubes.get(0).getNomeTime());
-        System.out.println("Time estar classificado para oitavas: " + clubes.get(1).getNomeTime());
-        System.out.println("Time estar classificado vai jogar Europa League: "+ clubes.get(2).getNomeTime());
-        System.out.println("============================================================");  
+    public String getCampeao(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t\tPARABENS CAMPEAO: "+ clubes.get(0).getNomeTime());
+        sb.append("\n============================================================\n");
+        sb.append("Time campeão da fase de grupo da Champions League:  " + clubes.get(0).getNomeTime());
+        sb.append("\n============================================================\n");
+        sb.append("Time estar classificado para oitavas: " + clubes.get(1).getNomeTime());
+        sb.append("\n============================================================\n");
+        sb.append("Time estar classificado vai jogar Europa League: "+ clubes.get(2).getNomeTime());
+        sb.append("\n============================================================\n");  
+        return sb.toString();
     }
 
 }
 
-   
