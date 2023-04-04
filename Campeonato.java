@@ -55,7 +55,7 @@ public class Campeonato {
         int posicao = 1;
        for (Clube clube : clubes) {
            sb.append("\n============================================================");
-           sb.append("\n"+posicao + ". " + clube.getNomeTime() + " - |Pontos: " + clube.getPontos() + "  |Saldo de gols: " + clube.getSaldodeGols() +"|");
+            sb.append("\n"+posicao + "| " + clube.getNomeTime() + " - Pontos: " + clube.getPontos() + " |SG: " + clube.getSaldodeGols() +"|" + " GM: " +clube.getGolsM()+"|" + " GS: " + clube.getGolsV());
            posicao++;
        } 
    return sb.toString();
